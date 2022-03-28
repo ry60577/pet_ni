@@ -1,3 +1,5 @@
 export default function () {
-  return {};
+  return {
+    isFirstEntry: false
+  }
 }
