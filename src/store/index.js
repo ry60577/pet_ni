@@ -1,6 +1,7 @@
 import { store } from "quasar/wrappers";
 import { createStore } from "vuex";
 import common from "./common";
+import animal from "./animal";
 
 // import example from './module-example'
 
@@ -18,6 +19,7 @@ export default store(function (/* { ssrContext } */) {
     modules: {
       // example
       common,
+      animal,
     },
 
     // enable strict mode (adds overhead!)

@@ -4,14 +4,26 @@
       alt="Quasar logo"
       src="~assets/quasar-logo-vertical.svg"
       style="width: 200px; height: 200px"
-    >
+    />
   </q-page>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script setup>
+import { onBeforeMount, computed } from "vue";
+import { useStore } from "vuex";
+import { useAnimal } from "../conposable/useAnimal.js";
 
-export default defineComponent({
-  name: 'IndexPage'
-})
+const { getAnimalList } = useAnimal();
+const store = useStore();
+let animalList = null;
+onBeforeMount(async () => {
+  if (localStorage.getItem("animalList") === null) {
+    await getAnimalList();
+    animalList = computed(() => {
+      return store.getters["animal/getAnimalList"];
+    });
+  } else {
+    animalList = JSON.parse(localStorage.getItem("animalList"));
+  }
+});
 </script>

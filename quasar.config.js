@@ -11,6 +11,7 @@
 const ESLintPlugin = require("eslint-webpack-plugin");
 
 const { configure } = require("quasar/wrappers");
+const env = require("quasar-dotenv").config();
 
 module.exports = configure(function (ctx) {
   return {
@@ -46,6 +47,7 @@ module.exports = configure(function (ctx) {
     build: {
       vueRouterMode: "hash", // available values: 'hash', 'history'
 
+      env: env,
       // transpile: false,
       // publicPath: '/',
 
@@ -80,6 +82,17 @@ module.exports = configure(function (ctx) {
       },
       port: 8080,
       open: true, // opens browser window automatically
+
+      proxy: {
+        // proxy all requests starting with /api to jsonplaceholder
+        "/base_api": {
+          target: process.env.ANIMAL_URL,
+          changeOrigin: true,
+          pathRewrite: {
+            "^/base_api": "",
+          },
+        },
+      },
     },
 
     // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-framework
