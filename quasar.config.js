@@ -238,6 +238,35 @@ module.exports = configure(function (ctx) {
           .plugin("eslint-webpack-plugin")
           .use(ESLintPlugin, [{ extensions: ["js"] }]);
       },
+
+      chainWebpackPreload(chain) {
+        chain.module
+          .rule("svg")
+          .exclude.add(resolve("src/assets/images/svg-icon"))
+          .end();
+        chain.module
+          .rule("icons")
+          .test(/\.svg$/)
+          .include.add(resolve("src/assets/images/svg-icon"))
+          .end()
+          .use("svg-sprite-loader")
+          .loader("svg-sprite-loader")
+          .options({
+            symbolId: "icon-[name]",
+            extract: true,
+            outputPath: "static/img/",
+            publicPath: "static/img/",
+            spriteFilename: "main.svg",
+          })
+          .end()
+          .use("svgo-loader") // 最佳化 svg (優化寫法及移除不需要的 attibute , 約可以減少30% 以上的圖檔大小)
+          .loader("svgo-loader")
+          .end();
+
+        chain
+          .plugin("svg-sprite") // extract: true 才需要
+          .use(require("svg-sprite-loader/plugin"));
+      },
     },
   };
 });

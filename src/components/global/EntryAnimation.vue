@@ -6,17 +6,7 @@
   </div>
 </template>
 
-<script setup>
-import { onMounted } from "vue";
-import { useRouter } from "vue-router";
-
-const router = useRouter();
-onMounted(() => {
-  setTimeout(() => {
-    router.replace({ path: "/" });
-  }, 3000);
-});
-</script>
+<script setup></script>
 <style lang="scss" scoped>
 .entry_wrapper {
   display: flex;

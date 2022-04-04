@@ -35,10 +35,10 @@ export default route(function (/* { store, ssrContext } */) {
     ),
   });
 
-  Router.beforeEach(async (to, from, next) => {
-    if (to.path === "/" && from.path === "/") next({ path: "/entry" });
-    else next();
-  });
+  // Router.beforeEach((to, from, next) => {
+  //   if (to.path === "/" && from.path === "/") next({ path: "/entry" });
+  //   else next();
+  // });
 
   return Router;
 });

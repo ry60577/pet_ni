@@ -2,10 +2,9 @@
   <router-view />
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script setup>
+import { useStore } from "vuex";
 
-export default defineComponent({
-  name: 'App'
-})
+const store = useStore();
+store.commit("common/checkIsMobile");
 </script>
