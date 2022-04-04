@@ -1,3 +1,6 @@
 export function checkIsMobile(state) {
-  state.isMobile = navigator.userAgentData.mobile;
+  state.isMobile =
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
 }

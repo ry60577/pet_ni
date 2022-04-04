@@ -1,12 +1,12 @@
 <!--- Navigation --->
 <template>
-  <q-toolbar>
-    <q-btn flat size="2rem">
+  <q-toolbar :class="{ no_padding: isMobile }">
+    <q-btn flat size="2rem" v-show="!isMobile">
       <img src="../assets/icon/petni_logo.svg" />
     </q-btn>
     <q-space />
 
-    <q-tabs v-model="tab" shrink stretch inline-label>
+    <q-tabs v-model="tab" stretch inline-label>
       <q-tab name="match">
         <q-icon size="2em">
           <template v-if="tab === 'match'">
@@ -16,12 +16,12 @@
             <img src="../assets/icon/card_gray.svg" />
           </template>
         </q-icon>
-        <template v-if="tab === 'match'">
+        <template v-if="tab === 'match' && !isMobile">
           <span class="text-theme">{{ tabParse(tab) }}</span>
         </template>
       </q-tab>
       <q-tab name="collect">
-        <q-icon size="1.2em" class="pr-lg">
+        <q-icon size="1.2em" :class="{ 'pr-lg': !isMobile }">
           <template v-if="tab === 'collect'">
             <img src="../assets/icon/heart_pink.svg" />
           </template>
@@ -29,12 +29,12 @@
             <img src="../assets/icon/heart_gray.svg" />
           </template>
         </q-icon>
-        <template v-if="tab === 'collect'">
+        <template v-if="tab === 'collect' && !isMobile">
           <span class="text-theme">{{ tabParse(tab) }}</span>
         </template>
       </q-tab>
       <q-tab name="theme">
-        <q-icon size="1.2em" class="pr-lg">
+        <q-icon size="1.2em" :class="{ 'pr-lg': !isMobile }">
           <template v-if="tab === 'theme'">
             <img src="../assets/icon/palette_pink.svg" />
           </template>
@@ -42,12 +42,12 @@
             <img src="../assets/icon/palette_gray.svg" />
           </template>
         </q-icon>
-        <template v-if="tab === 'theme'">
+        <template v-if="tab === 'theme' && !isMobile">
           <span class="text-theme">{{ tabParse(tab) }}</span>
         </template>
       </q-tab>
       <q-tab name="adoption">
-        <q-icon size="1.2em" class="pr-lg">
+        <q-icon size="1.2em" :class="{ 'pr-lg': !isMobile }">
           <template v-if="tab === 'adoption'">
             <img src="../assets/icon/adoption_pink.svg" />
           </template>
@@ -55,12 +55,12 @@
             <img src="../assets/icon/adoption_gray.svg" />
           </template>
         </q-icon>
-        <template v-if="tab === 'adoption'">
+        <template v-if="tab === 'adoption' && !isMobile">
           <span class="text-theme">{{ tabParse(tab) }}</span>
         </template>
       </q-tab>
       <q-tab name="emergency">
-        <q-icon size="1.2em" class="pr-lg">
+        <q-icon size="1.2em" :class="{ 'pr-lg': !isMobile }">
           <template v-if="tab === 'emergency'">
             <img src="../assets/icon/emergency_pink.svg" />
           </template>
@@ -68,7 +68,7 @@
             <img src="../assets/icon/emergency_gray.svg" />
           </template>
         </q-icon>
-        <template v-if="tab === 'emergency'">
+        <template v-if="tab === 'emergency' && !isMobile">
           <span class="text-theme">{{ tabParse(tab) }}</span>
         </template>
       </q-tab>
@@ -78,9 +78,12 @@
 
 <script setup>
 import { ref } from "vue";
+import { useStore } from "vuex";
+
+const store = useStore();
+const isMobile = store.getters["common/getIsMobile"];
 
 const tab = ref("match");
-
 const tabParse = (tab) => {
   switch (tab) {
     case "match":
@@ -99,6 +102,9 @@ const tabParse = (tab) => {
 };
 </script>
 <style lang="scss" scoped>
+.no_padding {
+  padding: 0;
+}
 :deep {
   .q-tab__indicator {
     opacity: 0;
