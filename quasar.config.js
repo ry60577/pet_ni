@@ -85,11 +85,18 @@ module.exports = configure(function (ctx) {
 
       proxy: {
         // proxy all requests starting with /api to jsonplaceholder
-        "/base_api": {
+        "/animal_api": {
           target: process.env.ANIMAL_URL,
           changeOrigin: true,
           pathRewrite: {
-            "^/base_api": "",
+            "^/animal_api": "",
+          },
+        },
+        "/emergency_api": {
+          target: process.env.EMERGENCY_URL,
+          changeOrigin: true,
+          pathRewrite: {
+            "^/emergency_api": "",
           },
         },
       },

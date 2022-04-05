@@ -16,14 +16,7 @@ import { useAnimal } from "../conposable/useAnimal.js";
 const { getAnimalList } = useAnimal();
 const store = useStore();
 onBeforeMount(async () => {
-  if (localStorage.getItem("animalList") === null) {
-    await getAnimalList();
-  } else {
-    store.commit(
-      "animal/setAnimalList",
-      JSON.parse(localStorage.getItem("animalList"))
-    );
-  }
+  await getAnimalList();
 });
 const animalList = computed(() => {
   return store.getters["animal/getAnimalList"];

@@ -1,88 +1,9 @@
 // app global css in SCSS form
-
-/* padding */
-// left and right padding
-.pw-xs {
-  padding: 0 1%;
-}
-.pw-sm {
-  padding: 0 2%;
-}
-.pw-md {
-  padding: 0 3%;
-}
-.pw-lg {
-  padding: 0 4%;
-}
-// top and bottom padding
-.ph-xs {
-  padding: 1% 0;
-}
-.ph-sm {
-  padding: 2% 0;
-}
-.ph-md {
-  padding: 3% 0;
-}
-.ph-lg {
-  padding: 4% 0;
-}
-// single side padding
-.pt-xs {
-  padding-top: 1%;
-}
-.pt-sm {
-  padding-top: 2%;
-}
-.pt-md {
-  padding-top: 3%;
-}
-.pt-lg {
-  padding-top: 4%;
-}
-
-.pb-xs {
-  padding-bottom: 1%;
-}
-.pb-sm {
-  padding-bottom: 2%;
-}
-.pb-md {
-  padding-bottom: 3%;
-}
-.pb-lg {
-  padding-bottom: 4%;
-}
-
-.pl-xs {
-  padding-left: 1%;
-}
-.pl-sm {
-  padding-left: 2%;
-}
-.pl-md {
-  padding-left: 3%;
-}
-.pl-lg {
-  padding-left: 4%;
-}
-
-.pr-xs {
-  padding-right: 1%;
-}
-.pr-sm {
-  padding-right: 2%;
-}
-.pr-md {
-  padding-right: 3%;
-}
-.pr-lg {
-  padding-right: 4%;
-}
+@import url("../css/spacing.scss");
 
 /* text */
-.text-theme {
-  color: #fdaaa2;
+.text-black-1 {
+  color: $dark;
 }
 
 /* border */

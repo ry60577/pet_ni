@@ -5,7 +5,14 @@ const routes = [
     children: [
       {
         path: "",
+        name: "match",
         component: () => import("pages/IndexPage.vue"),
+      },
+      {
+        path: "/emergency",
+        name: "emergency",
+        component: () =>
+          import("../components/emergency/EmergencyHospital.vue"),
       },
     ],
   },

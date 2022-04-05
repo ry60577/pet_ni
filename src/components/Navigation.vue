@@ -7,7 +7,7 @@
     <q-space />
 
     <q-tabs v-model="tab" stretch inline-label>
-      <q-tab name="match">
+      <q-tab name="match" @click="router.push('/')">
         <q-icon size="2em">
           <template v-if="tab === 'match'">
             <img src="../assets/icon/card_pink.svg" />
@@ -59,7 +59,7 @@
           <span class="text-theme">{{ tabParse(tab) }}</span>
         </template>
       </q-tab>
-      <q-tab name="emergency">
+      <q-tab name="emergency" @click="router.push('/emergency')">
         <q-icon size="1.2em" :class="{ 'pr-lg': !isMobile }">
           <template v-if="tab === 'emergency'">
             <img src="../assets/icon/emergency_pink.svg" />
@@ -78,12 +78,15 @@
 
 <script setup>
 import { ref } from "vue";
+import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
 
 const store = useStore();
 const isMobile = store.getters["common/getIsMobile"];
 
-const tab = ref("match");
+const route = useRoute();
+const router = useRouter();
+const tab = ref(route.name);
 const tabParse = (tab) => {
   switch (tab) {
     case "match":
