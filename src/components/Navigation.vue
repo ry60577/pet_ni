@@ -1,79 +1,72 @@
 <!--- Navigation --->
 <template>
-  <q-toolbar :class="{ no_padding: isMobile }">
-    <q-btn flat size="2rem" v-show="!isMobile">
-      <img src="../assets/icon/petni_logo.svg" />
-    </q-btn>
-    <q-space />
-
-    <q-tabs v-model="tab" stretch inline-label>
-      <q-tab name="match" @click="router.push('/')">
-        <q-icon size="2em">
-          <template v-if="tab === 'match'">
-            <img src="../assets/icon/card_pink.svg" />
-          </template>
-          <template v-else>
-            <img src="../assets/icon/card_gray.svg" />
-          </template>
-        </q-icon>
-        <template v-if="tab === 'match' && !isMobile">
-          <span class="text-theme">{{ tabParse(tab) }}</span>
+  <q-tabs v-model="tab" stretch inline-label>
+    <q-tab name="match" @click="router.push('/')">
+      <q-icon size="2em">
+        <template v-if="tab === 'match'">
+          <img src="../assets/icon/card_pink.svg" />
         </template>
-      </q-tab>
-      <q-tab name="collect">
-        <q-icon size="1.2em" :class="{ 'pr-lg': !isMobile }">
-          <template v-if="tab === 'collect'">
-            <img src="../assets/icon/heart_pink.svg" />
-          </template>
-          <template v-else>
-            <img src="../assets/icon/heart_gray.svg" />
-          </template>
-        </q-icon>
-        <template v-if="tab === 'collect' && !isMobile">
-          <span class="text-theme">{{ tabParse(tab) }}</span>
+        <template v-else>
+          <img src="../assets/icon/card_gray.svg" />
         </template>
-      </q-tab>
-      <q-tab name="theme">
-        <q-icon size="1.2em" :class="{ 'pr-lg': !isMobile }">
-          <template v-if="tab === 'theme'">
-            <img src="../assets/icon/palette_pink.svg" />
-          </template>
-          <template v-else>
-            <img src="../assets/icon/palette_gray.svg" />
-          </template>
-        </q-icon>
-        <template v-if="tab === 'theme' && !isMobile">
-          <span class="text-theme">{{ tabParse(tab) }}</span>
+      </q-icon>
+      <template v-if="tab === 'match' && !isMobile">
+        <span class="text-theme">{{ tabParse(tab) }}</span>
+      </template>
+    </q-tab>
+    <q-tab name="collect">
+      <q-icon size="1.2em" :class="{ 'pr-lg': !isMobile }">
+        <template v-if="tab === 'collect'">
+          <img src="../assets/icon/heart_pink.svg" />
         </template>
-      </q-tab>
-      <q-tab name="adoption">
-        <q-icon size="1.2em" :class="{ 'pr-lg': !isMobile }">
-          <template v-if="tab === 'adoption'">
-            <img src="../assets/icon/adoption_pink.svg" />
-          </template>
-          <template v-else>
-            <img src="../assets/icon/adoption_gray.svg" />
-          </template>
-        </q-icon>
-        <template v-if="tab === 'adoption' && !isMobile">
-          <span class="text-theme">{{ tabParse(tab) }}</span>
+        <template v-else>
+          <img src="../assets/icon/heart_gray.svg" />
         </template>
-      </q-tab>
-      <q-tab name="emergency" @click="router.push('/emergency')">
-        <q-icon size="1.2em" :class="{ 'pr-lg': !isMobile }">
-          <template v-if="tab === 'emergency'">
-            <img src="../assets/icon/emergency_pink.svg" />
-          </template>
-          <template v-else>
-            <img src="../assets/icon/emergency_gray.svg" />
-          </template>
-        </q-icon>
-        <template v-if="tab === 'emergency' && !isMobile">
-          <span class="text-theme">{{ tabParse(tab) }}</span>
+      </q-icon>
+      <template v-if="tab === 'collect' && !isMobile">
+        <span class="text-theme">{{ tabParse(tab) }}</span>
+      </template>
+    </q-tab>
+    <q-tab name="theme">
+      <q-icon size="1.2em" :class="{ 'pr-lg': !isMobile }">
+        <template v-if="tab === 'theme'">
+          <img src="../assets/icon/palette_pink.svg" />
         </template>
-      </q-tab>
-    </q-tabs>
-  </q-toolbar>
+        <template v-else>
+          <img src="../assets/icon/palette_gray.svg" />
+        </template>
+      </q-icon>
+      <template v-if="tab === 'theme' && !isMobile">
+        <span class="text-theme">{{ tabParse(tab) }}</span>
+      </template>
+    </q-tab>
+    <q-tab name="adoption">
+      <q-icon size="1.2em" :class="{ 'pr-lg': !isMobile }">
+        <template v-if="tab === 'adoption'">
+          <img src="../assets/icon/adoption_pink.svg" />
+        </template>
+        <template v-else>
+          <img src="../assets/icon/adoption_gray.svg" />
+        </template>
+      </q-icon>
+      <template v-if="tab === 'adoption' && !isMobile">
+        <span class="text-theme">{{ tabParse(tab) }}</span>
+      </template>
+    </q-tab>
+    <q-tab name="emergency" @click="router.push('/emergency')">
+      <q-icon size="1.2em" :class="{ 'pr-lg': !isMobile }">
+        <template v-if="tab === 'emergency'">
+          <img src="../assets/icon/emergency_pink.svg" />
+        </template>
+        <template v-else>
+          <img src="../assets/icon/emergency_gray.svg" />
+        </template>
+      </q-icon>
+      <template v-if="tab === 'emergency' && !isMobile">
+        <span class="text-theme">{{ tabParse(tab) }}</span>
+      </template>
+    </q-tab>
+  </q-tabs>
 </template>
 
 <script setup>
@@ -105,12 +98,17 @@ const tabParse = (tab) => {
 };
 </script>
 <style lang="scss" scoped>
-.no_padding {
-  padding: 0;
-}
 :deep {
   .q-tab__indicator {
     opacity: 0;
+  }
+}
+@media screen and (max-width: 1000px) {
+  :deep {
+    .q-tabs__content {
+      display: flex;
+      justify-content: space-around;
+    }
   }
 }
 </style>

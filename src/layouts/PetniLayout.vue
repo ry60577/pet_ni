@@ -6,15 +6,19 @@
       class="bg-white text-primary"
       :class="{ 'pw-lg': !isMobile }"
     >
-      <Navigation v-show="!isMobile" />
+      <q-toolbar :class="{ no_padding: isMobile }" v-show="!isMobile">
+        <q-btn flat size="2rem">
+          <img src="../assets/icon/petni_logo.svg" />
+        </q-btn>
+        <q-space />
 
+        <Navigation />
+      </q-toolbar>
       <LocationTab v-show="isMobile && route.name === 'emergency'" />
     </q-header>
 
     <q-footer bordered class="bg-white text-primary" v-show="isMobile">
-      <q-toolbar>
-        <Navigation />
-      </q-toolbar>
+      <Navigation />
     </q-footer>
     <q-page-container>
       <router-view />
