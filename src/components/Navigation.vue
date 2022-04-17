@@ -99,16 +99,20 @@ const tabParse = (tab) => {
 </script>
 <style lang="scss" scoped>
 :deep {
+  .q-tabs__content {
+    display: flex;
+    justify-content: space-around;
+  }
   .q-tab__indicator {
     opacity: 0;
   }
 }
-@media screen and (max-width: 1000px) {
-  :deep {
-    .q-tabs__content {
-      display: flex;
-      justify-content: space-around;
-    }
-  }
-}
+// @media screen and (max-width: 1000px) {
+//   :deep {
+//     .q-tabs__content {
+//       display: flex;
+//       justify-content: space-around;
+//     }
+//   }
+// }
 </style>

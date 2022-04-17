@@ -1,7 +1,5 @@
 import { api } from "boot/axios.js";
 
-// const api = axios.create();
-
 const request = api;
 
 // 請求攔截
