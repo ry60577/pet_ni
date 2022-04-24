@@ -14,6 +14,11 @@ const routes = [
         component: () =>
           import("../components/emergency/EmergencyHospital.vue"),
       },
+      {
+        path: "/collect",
+        name: "collect",
+        component: () => import("../components/collect/CollectionList.vue"),
+      },
     ],
   },
   {

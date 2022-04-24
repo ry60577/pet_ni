@@ -14,7 +14,7 @@
         <span class="text-theme">{{ tabParse(tab) }}</span>
       </template>
     </q-tab>
-    <q-tab name="collect">
+    <q-tab name="collect" @click="router.push('/collect')">
       <q-icon size="1.2em" :class="{ 'pr-lg': !isMobile }">
         <template v-if="tab === 'collect'">
           <img src="../assets/icon/heart_pink.svg" />

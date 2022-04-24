@@ -8,17 +8,4 @@
   </q-page>
 </template>
 
-<script setup>
-import { onBeforeMount, computed } from "vue";
-import { useStore } from "vuex";
-import { useAnimal } from "../conposable/useAnimal.js";
-
-const { getAnimalList } = useAnimal();
-const store = useStore();
-onBeforeMount(async () => {
-  await getAnimalList();
-});
-const animalList = computed(() => {
-  return store.getters["animal/getAnimalList"];
-});
-</script>
+<script setup></script>
