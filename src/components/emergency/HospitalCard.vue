@@ -1,6 +1,6 @@
 <!-- HospitalCard -->
 <template>
-  <div class="mr-xs mb-xs text-black-1 hospital_card_wrapper">
+  <div class="mr-xs mb-xs text_black_1 hospital_card_wrapper">
     <div class="hospital_info">
       <div class="ellipsis hospital_name">
         {{ hospital.Name }}

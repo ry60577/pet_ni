@@ -7,7 +7,6 @@ const animalList = async () => {
     process.env.NODE_ENV === "production"
       ? "https://data.coa.gov.tw/Service/OpenData/TransService.aspx?UnitId=QcbUEzN6E6DL"
       : `${ANIMAL_URL}?UnitId=QcbUEzN6E6DL`;
-  console.log(api);
   const res = await request.get(api);
   return res;
 };

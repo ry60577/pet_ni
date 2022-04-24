@@ -10,6 +10,7 @@ import { useAnimal } from "./conposable/useAnimal";
 const { getAnimalList } = useAnimal();
 const store = useStore();
 onBeforeMount(async () => {
+  await store.commit("common/checkIsMobile");
   await getAnimalList();
 });
 const animalList = computed(() => {

@@ -4,3 +4,6 @@ export function checkIsMobile(state) {
       navigator.userAgent
     );
 }
+export function setIsShowDialog(state, status) {
+  state.isShowDialog = status;
+}

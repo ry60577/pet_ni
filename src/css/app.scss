@@ -2,11 +2,22 @@
 @import url("../css/spacing.scss");
 
 /* text */
-.text-black-1 {
+.text_black_1 {
   color: $dark;
+}
+.text_gray_1 {
+  color: $secondary;
+}
+.text_gray_2 {
+  color: #dedede;
 }
 
 /* border */
 .no_border {
   border: none;
+}
+
+/* background color*/
+.bg_white {
+  background-color: #fff;
 }

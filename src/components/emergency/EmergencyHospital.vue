@@ -1,6 +1,6 @@
 <!-- EmergencyHospital -->
 <template>
-  <div class="text-black-1" :class="{ 'pw-sm': isMobile, 'pw-xl': !isMobile }">
+  <div class="text_black_1" :class="{ 'pw-sm': isMobile, 'pw-xl': !isMobile }">
     <div v-show="!isMobile">
       <LocationTab :class="{ pc_center: !isMobile }" />
     </div>
@@ -17,7 +17,7 @@
       *資訊僅供參考，建議先電話聯絡再前往。
     </div>
     <template v-for="(lists, index) in emergencyList" :key="index">
-      <div class="text-black-1 city_name">
+      <div class="text_black_1 city_name">
         <img src="../../assets/icon/map_pin_pink.svg" class="mr-xxs" />{{
           lists.city
         }}
@@ -43,6 +43,7 @@ import { useStore } from "vuex";
 import { useAnimal } from "../../conposable/useAnimal";
 import LocationTab from "components/emergency/LocationTab.vue";
 import HospitalCard from "components/emergency/HospitalCard.vue";
+import YarnBallLoading from "../../../public/yarn_ball_loading.json";
 
 const { getEmergencyList } = useAnimal();
 onBeforeMount(async () => {

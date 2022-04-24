@@ -1,7 +1,7 @@
 <!-- LocationTab -->
 <template>
   <div class="q-pa-md emergency">
-    <div class="text-black-1" v-show="isMobile">
+    <div class="text_black_1" v-show="isMobile">
       24H<span class="no_show">急診</span>
     </div>
     <div class="q-gutter-sm">
