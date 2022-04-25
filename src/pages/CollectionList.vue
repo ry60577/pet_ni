@@ -14,7 +14,7 @@
 <script setup>
 import { computed } from "vue";
 import { useStore } from "vuex";
-import CollectCard from "../collect/CollectCard.vue";
+import CollectCard from "../components/collect/CollectCard.vue";
 
 const store = useStore();
 const collectList = computed(() =>

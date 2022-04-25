@@ -7,7 +7,7 @@
     <div :class="{ pc_center: !isMobile, pc_position_end: isMobile }">
       *資訊來源：
       <a href="https://www.afurkid.com/Veterinary/List"
-        >Afurkid 毛小孩寵物資訊。
+        >Afurkid 毛小孩寵物資訊。(最新資訊請查閱網站)
       </a>
     </div>
     <div
@@ -16,9 +16,14 @@
     >
       *資訊僅供參考，建議先電話聯絡再前往。
     </div>
-    <template v-for="(lists, index) in emergencyList" :key="index">
+    <template v-if="isShowLoading">
+      <div class="pc_center">
+        <YarnBall />
+      </div>
+    </template>
+    <template v-for="(lists, index) in emergencyList" :key="index" v-else>
       <div class="text_black_1 city_name">
-        <img src="../../assets/icon/map_pin_pink.svg" class="mr-xxs" />{{
+        <img src="../assets/icon/map_pin_pink.svg" class="mr-xxs" />{{
           lists.city
         }}
       </div>
@@ -38,16 +43,18 @@
 </template>
 
 <script setup>
-import { onBeforeMount, computed } from "vue";
+import { ref, onBeforeMount, computed } from "vue";
 import { useStore } from "vuex";
-import { useAnimal } from "../../conposable/useAnimal";
+import { useAnimal } from "../conposable/useAnimal";
 import LocationTab from "components/emergency/LocationTab.vue";
 import HospitalCard from "components/emergency/HospitalCard.vue";
-import YarnBallLoading from "../../../public/yarn_ball_loading.json";
+import YarnBall from "src/components/global/YarnBall.vue";
 
 const { getEmergencyList } = useAnimal();
+const isShowLoading = ref(false);
 onBeforeMount(async () => {
-  await getEmergencyList();
+  isShowLoading.value = true;
+  await getEmergencyList().then(() => (isShowLoading.value = false));
 });
 const store = useStore();
 const isMobile = store.getters["common/getIsMobile"];

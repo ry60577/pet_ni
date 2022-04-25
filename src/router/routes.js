@@ -11,13 +11,12 @@ const routes = [
       {
         path: "/emergency",
         name: "emergency",
-        component: () =>
-          import("../components/emergency/EmergencyHospital.vue"),
+        component: () => import("pages/EmergencyHospital.vue"),
       },
       {
         path: "/collect",
         name: "collect",
-        component: () => import("../components/collect/CollectionList.vue"),
+        component: () => import("pages/CollectionList.vue"),
       },
     ],
   },
