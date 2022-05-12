@@ -4,10 +4,10 @@
     <q-tab name="match" @click="router.push('/')">
       <q-icon size="2em">
         <template v-if="tab === 'match'">
-          <img src="../assets/icon/card_pink.svg" />
+          <img src="../assets/icon/card_pink.svg" alt="配對|Petni 陪你" />
         </template>
         <template v-else>
-          <img src="../assets/icon/card_gray.svg" />
+          <img src="../assets/icon/card_gray.svg" alt="配對|Petni 陪你" />
         </template>
       </q-icon>
       <template v-if="tab === 'match' && !isMobile">
@@ -17,10 +17,10 @@
     <q-tab name="collect" @click="router.push('/collect')">
       <q-icon size="1.2em" :class="{ 'pr-lg': !isMobile }">
         <template v-if="tab === 'collect'">
-          <img src="../assets/icon/heart_pink.svg" />
+          <img src="../assets/icon/heart_pink.svg" alt="收藏|Petni 陪你" />
         </template>
         <template v-else>
-          <img src="../assets/icon/heart_gray.svg" />
+          <img src="../assets/icon/heart_gray.svg" alt="收藏|Petni 陪你" />
         </template>
       </q-icon>
       <template v-if="tab === 'collect' && !isMobile">
@@ -30,10 +30,10 @@
     <q-tab name="theme">
       <q-icon size="1.2em" :class="{ 'pr-lg': !isMobile }">
         <template v-if="tab === 'theme'">
-          <img src="../assets/icon/palette_pink.svg" />
+          <img src="../assets/icon/palette_pink.svg" alt="主題館|Petni 陪你" />
         </template>
         <template v-else>
-          <img src="../assets/icon/palette_gray.svg" />
+          <img src="../assets/icon/palette_gray.svg" alt="主題館|Petni 陪你" />
         </template>
       </q-icon>
       <template v-if="tab === 'theme' && !isMobile">
@@ -43,10 +43,10 @@
     <q-tab name="adoption">
       <q-icon size="1.2em" :class="{ 'pr-lg': !isMobile }">
         <template v-if="tab === 'adoption'">
-          <img src="../assets/icon/adoption_pink.svg" />
+          <img src="../assets/icon/adoption_pink.svg" alt="送養|Petni 陪你" />
         </template>
         <template v-else>
-          <img src="../assets/icon/adoption_gray.svg" />
+          <img src="../assets/icon/adoption_gray.svg" alt="送養|Petni 陪你" />
         </template>
       </q-icon>
       <template v-if="tab === 'adoption' && !isMobile">
@@ -56,10 +56,10 @@
     <q-tab name="emergency" @click="router.push('/emergency')">
       <q-icon size="1.2em" :class="{ 'pr-lg': !isMobile }">
         <template v-if="tab === 'emergency'">
-          <img src="../assets/icon/emergency_pink.svg" />
+          <img src="../assets/icon/emergency_pink.svg" alt="急診|Petni 陪你" />
         </template>
         <template v-else>
-          <img src="../assets/icon/emergency_gray.svg" />
+          <img src="../assets/icon/emergency_gray.svg" alt="急診|Petni 陪你" />
         </template>
       </q-icon>
       <template v-if="tab === 'emergency' && !isMobile">

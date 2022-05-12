@@ -42,8 +42,6 @@ const showDialogHandler = (status) => {
   max-width: 80vw;
 }
 .q-dialog__backdrop {
-  background: unset;
-  background-color: rgb(0, 0, 0, 0.1) !important;
   backdrop-filter: blur(12px);
 }
 </style>

@@ -8,7 +8,7 @@
     >
       <q-toolbar :class="{ no_padding: isMobile }" v-show="!isMobile">
         <q-btn flat size="2rem">
-          <img src="../assets/icon/petni_logo.svg" />
+          <img src="../assets/icon/petni_logo.svg" alt="Petni 陪你" />
         </q-btn>
         <q-space />
 
