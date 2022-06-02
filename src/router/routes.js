@@ -9,14 +9,19 @@ const routes = [
         component: () => import("pages/IndexPage.vue"),
       },
       {
-        path: "/emergency",
-        name: "emergency",
-        component: () => import("pages/EmergencyHospital.vue"),
-      },
-      {
         path: "/collect",
         name: "collect",
         component: () => import("pages/CollectionList.vue"),
+      },
+      {
+        path: "/theme",
+        name: "theme",
+        component: () => import("pages/ThemePage.vue"),
+      },
+      {
+        path: "/emergency",
+        name: "emergency",
+        component: () => import("pages/EmergencyHospital.vue"),
       },
     ],
   },

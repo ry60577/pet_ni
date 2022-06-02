@@ -27,7 +27,7 @@
         <span class="text-theme">{{ tabParse(tab) }}</span>
       </template>
     </q-tab>
-    <q-tab name="theme">
+    <q-tab name="theme" @click="router.push('/theme')">
       <q-icon size="1.2em" :class="{ 'pr-lg': !isMobile }">
         <template v-if="tab === 'theme'">
           <img src="../assets/icon/palette_pink.svg" alt="主題館|Petni 陪你" />
