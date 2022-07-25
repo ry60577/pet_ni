@@ -94,8 +94,6 @@ const selectPetType = (type) => {
   height: 100%;
   background-color: #e5e5e5;
   .pet_type {
-    position: relative;
-    right: 0;
     padding: 4px 0;
     width: 150px;
     text-align: center;
