@@ -1,8 +1,29 @@
 const routes = [
   {
     path: "/",
-    component: () => import("layouts/MainLayout.vue"),
-    children: [{ path: "", component: () => import("pages/IndexPage.vue") }],
+    component: () => import("src/layouts/DesktopLayout.vue"),
+    children: [
+      {
+        path: "",
+        name: "match",
+        component: () => import("pages/IndexPage.vue"),
+      },
+      {
+        path: "/collect",
+        name: "collect",
+        component: () => import("pages/CollectionList.vue"),
+      },
+      {
+        path: "/theme",
+        name: "theme",
+        component: () => import("pages/ThemePage.vue"),
+      },
+      {
+        path: "/emergency",
+        name: "emergency",
+        component: () => import("pages/EmergencyHospital.vue"),
+      },
+    ],
   },
   {
     path: "/entry",

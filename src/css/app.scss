@@ -1,1 +1,20 @@
 // app global css in SCSS form
+@import url("../css/spacing.scss");
+
+/* text */
+.text_black_1 {
+  color: $dark;
+}
+.text_gray_1 {
+  color: $secondary;
+}
+.text_gray_2 {
+  color: #dedede;
+}
+
+/* border */
+.no_border {
+  border: none;
+}
+
+/* background color*/

@@ -11,6 +11,7 @@
 const ESLintPlugin = require("eslint-webpack-plugin");
 
 const { configure } = require("quasar/wrappers");
+const env = require("quasar-dotenv").config();
 
 module.exports = configure(function (ctx) {
   return {
@@ -23,16 +24,16 @@ module.exports = configure(function (ctx) {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli-webpack/boot-files
-    boot: ["i18n", "axios"],
+    boot: ["i18n", "axios", "global-components"],
 
     // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-css
-    css: ["app.scss", "reset.css"],
+    css: ["app.scss", "reset.scss"],
 
     // https://github.com/quasarframework/quasar/tree/dev/extras
     extras: [
       // 'ionicons-v4',
       // 'mdi-v5',
-      // 'fontawesome-v6',
+      "fontawesome-v6",
       // 'eva-icons',
       // 'themify',
       // 'line-awesome',
@@ -46,6 +47,7 @@ module.exports = configure(function (ctx) {
     build: {
       vueRouterMode: "hash", // available values: 'hash', 'history'
 
+      env: env,
       // transpile: false,
       // publicPath: '/',
 
@@ -80,6 +82,24 @@ module.exports = configure(function (ctx) {
       },
       port: 8080,
       open: true, // opens browser window automatically
+
+      proxy: {
+        // proxy all requests starting with /api to jsonplaceholder
+        "/animal_api": {
+          target: process.env.ANIMAL_URL,
+          changeOrigin: true,
+          pathRewrite: {
+            "^/animal_api": "",
+          },
+        },
+        "/emergency_api": {
+          target: process.env.EMERGENCY_URL,
+          changeOrigin: true,
+          pathRewrite: {
+            "^/emergency_api": "",
+          },
+        },
+      },
     },
 
     // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-framework

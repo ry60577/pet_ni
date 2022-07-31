@@ -2,10 +2,18 @@
   <router-view />
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script setup>
+import { onBeforeMount, computed } from "vue";
+import { useStore } from "vuex";
+import { useAnimal } from "./conposable/useAnimal";
 
-export default defineComponent({
-  name: 'App'
-})
+const { getAnimalList } = useAnimal();
+const store = useStore();
+onBeforeMount(async () => {
+  await store.commit("common/checkIsMobile");
+  await getAnimalList();
+});
+const animalList = computed(() => {
+  return store.getters["animal/getAnimalList"];
+});
 </script>

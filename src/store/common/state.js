@@ -1,5 +1,7 @@
 export default function () {
   return {
-    isFirstEntry: false
-  }
+    isFirstEntry: false,
+    isMobile: false,
+    isShowDialog: false,
+  };
 }
