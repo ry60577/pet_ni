@@ -34,6 +34,7 @@
           theme_bg_dog: petType === 'dog' && !isMobile,
         },
       ]"
+      :style="{ height: windowHeight }"
     >
       <q-carousel
         swipeable
@@ -41,6 +42,7 @@
         v-model="slide"
         ref="carousel"
         :arrows="isMobile"
+        height="100%"
       >
         <q-carousel-slide
           v-for="theme in themeData"
@@ -63,7 +65,9 @@
                 />
               </div>
             </div>
-            <img :src="theme.imgUrl" :alt="`${theme.name}|PetNi 陪你`" />
+            <div class="img_wrap">
+              <img :src="theme.imgUrl" :alt="`${theme.name}|PetNi 陪你`" />
+            </div>
           </div>
         </q-carousel-slide>
 
@@ -121,6 +125,7 @@ const filterThemeData = () => {
   });
 };
 const themeData = ref(filterThemeData());
+const windowHeight = ref(`${window.innerHeight}px`);
 watch(
   () => petType.value,
   (val) => {
@@ -145,7 +150,6 @@ watch(
     z-index: 2;
     top: 0;
     width: 100%;
-    height: 92px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -156,6 +160,7 @@ watch(
       position: absolute;
       right: 5%;
       top: 12%;
+      z-index: 1;
     }
     padding: 4px 0;
     width: 150px;
@@ -174,7 +179,9 @@ watch(
       }
     }
   }
-
+  .theme_carousel {
+    height: 100%;
+  }
   .carousel_card {
     height: 100%;
     &.carousel_card_pc {
@@ -197,7 +204,6 @@ watch(
       flex-direction: column;
       .desc_wrap {
         order: 2;
-        width: 370px;
         .desc {
           margin-top: 7px;
           margin-bottom: 11px;
@@ -209,6 +215,13 @@ watch(
           display: flex;
           justify-content: center;
         }
+      }
+    }
+    .img_wrap {
+      img {
+        padding-top: 15%;
+        width: 100%;
+        height: 100%;
       }
     }
     h3 {
@@ -223,9 +236,6 @@ watch(
       line-height: 27px;
       letter-spacing: 0.374px;
       color: #878787;
-    }
-    img {
-      min-height: 730px;
     }
     :deep {
       .search_btn {
