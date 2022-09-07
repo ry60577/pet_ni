@@ -1,0 +1,27 @@
+[
+  {
+    "key": "match",
+    "name": "配對",
+    "route": "/"
+  },
+  {
+    "key": "collect",
+    "name": "收藏",
+    "route": "/collect"
+  },
+  {
+    "key": "theme",
+    "name": "主題館",
+    "route": "/theme"
+  },
+  {
+    "key": "adoption",
+    "name": "送養",
+    "route": "/adoption"
+  },
+  {
+    "key": "emergency",
+    "name": "急診",
+    "route": "/emergency"
+  }
+]

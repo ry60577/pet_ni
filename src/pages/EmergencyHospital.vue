@@ -1,6 +1,6 @@
 <!-- EmergencyHospital -->
 <template>
-  <div class="text_black_1" :class="{ 'pw-sm': isMobile, 'pw-xl': !isMobile }">
+  <div :class="['text_black_1', { 'pw-sm': isMobile, 'pw-xl': !isMobile }]">
     <div v-show="!isMobile">
       <LocationTab :class="{ pc_center: !isMobile }" />
     </div>
@@ -28,11 +28,13 @@
         }}
       </div>
       <div
-        class="hospital_list"
-        :class="{
-          'mb-xs': !isMobile,
-          'mb-lg': isMobile,
-        }"
+        :class="[
+          'hospital_list',
+          {
+            'mb-xs': !isMobile,
+            'mb-lg': isMobile,
+          },
+        ]"
       >
         <template v-for="item in lists.list" :key="item.VeterinaryId">
           <HospitalCard :hospital="item" />
@@ -71,9 +73,6 @@ const emergencyList = computed(
 .pc_position_end {
   display: flex;
   justify-content: flex-end;
-}
-.pc_padding {
-  padding-left: 13%;
 }
 .city_name {
   display: flex;

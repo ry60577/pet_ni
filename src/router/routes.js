@@ -23,6 +23,11 @@ const routes = [
         name: "emergency",
         component: () => import("pages/EmergencyHospital.vue"),
       },
+      {
+        path: "/adoption",
+        name: "adoption",
+        component: () => import("pages/AdoptionPage.vue"),
+      },
     ],
   },
   {

@@ -34,7 +34,6 @@
           theme_bg_dog: petType === 'dog' && !isMobile,
         },
       ]"
-      :style="{ height: windowHeight }"
     >
       <q-carousel
         swipeable
@@ -42,7 +41,6 @@
         v-model="slide"
         ref="carousel"
         :arrows="isMobile"
-        height="100%"
       >
         <q-carousel-slide
           v-for="theme in themeData"
@@ -65,7 +63,7 @@
                 />
               </div>
             </div>
-            <div class="img_wrap">
+            <div :class="{ image_wrap: isMobile }">
               <img :src="theme.imgUrl" :alt="`${theme.name}|PetNi 陪你`" />
             </div>
           </div>
@@ -125,7 +123,7 @@ const filterThemeData = () => {
   });
 };
 const themeData = ref(filterThemeData());
-const windowHeight = ref(`${window.innerHeight}px`);
+const windowHeight = ref(`${window.innerHeight}px;`);
 watch(
   () => petType.value,
   (val) => {
@@ -217,10 +215,9 @@ watch(
         }
       }
     }
-    .img_wrap {
+    .image_wrap {
+      margin-top: 10%;
       img {
-        padding-top: 15%;
-        width: 100%;
         height: 100%;
       }
     }
@@ -297,6 +294,21 @@ watch(
         }
       }
     }
+  }
+}
+@media screen and (min-width: 1000px) {
+  .theme_wrapper {
+    height: calc(100vh - 83px);
+  }
+}
+@media screen and (max-width: 900px) {
+  .pet_type_wrap {
+    height: 92px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .pet_type_wrap {
+    height: 62px;
   }
 }
 </style>
