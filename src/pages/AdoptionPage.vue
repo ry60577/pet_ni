@@ -7,13 +7,13 @@
       <input type="file" id="upload_file" />
       <span class="text-primary">上傳寵物照片</span>
     </div>
-    <GoogleSignIn />
+    <!-- <GoogleSignIn /> -->
   </div>
 </template>
 <script setup>
 import { ref } from "vue";
 import { useStore } from "vuex";
-import GoogleSignIn from "../components/global/GoogleSignIn.vue";
+// import GoogleSignIn from "../components/global/GoogleSignIn.vue";
 
 const store = useStore();
 const isMobile = store.getters["common/getIsMobile"];

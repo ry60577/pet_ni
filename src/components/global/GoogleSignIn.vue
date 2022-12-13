@@ -1,5 +1,5 @@
 <template>
-  <div id="google_signIn">123</div>
+  <div id="google_signIn"></div>
 </template>
 <script setup>
 import { onMounted } from "vue";

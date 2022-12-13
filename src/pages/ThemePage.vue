@@ -113,14 +113,19 @@ const petType = ref("cat");
 const selectPetType = (type) => {
   petType.value = type;
 };
-themeList = themeList.map((item) => {
-  item.imgUrl = require(`../assets/image/${item.name}.svg`);
-  return item;
-});
+// themeList = themeList.map((item) => {
+//   item.imgUrl = require(`../assets/image/${item.name}.svg`);
+//   return item;
+// });
 const filterThemeData = () => {
-  return themeList.filter((item) => {
-    return item.name.includes(petType.value);
-  });
+  return themeList
+    .map((item) => {
+      item.imgUrl = require(`../assets/image/${item.name}.svg`);
+      return item;
+    })
+    .filter((item) => {
+      return item.name.includes(petType.value);
+    });
 };
 const themeData = ref(filterThemeData());
 const windowHeight = ref(`${window.innerHeight}px;`);

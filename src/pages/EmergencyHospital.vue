@@ -69,6 +69,7 @@ const emergencyList = computed(
 .pc_center {
   display: flex;
   justify-content: center;
+  line-height: 2rem;
 }
 .pc_position_end {
   display: flex;
